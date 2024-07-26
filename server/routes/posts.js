@@ -13,6 +13,21 @@ router.get("/", async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+});;
+
+router.get('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const post = await Post.findById(id);
+        const locals = {
+            title: post.title,
+            description: post.body,
+        }
+        res.render('show', { locals, post });
+    }
+    catch (error) {
+        console.log(error);
+    }
 });
 
 export default router;
