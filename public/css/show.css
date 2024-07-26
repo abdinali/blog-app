@@ -1,0 +1,43 @@
+/* SHOW PAGE */
+
+.show-content {
+    width: 100%;
+    margin-top: 8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.show-card {
+    width: 80%;
+}
+
+.show-card h1 {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.show-card article {
+    padding: 0rem 2rem;
+}
+
+.show-card article p {
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+@media only screen and (min-width: 425px) {
+    .show-card h1 {
+        font-size: 1.5rem;
+    }
+
+    .show-card article p {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .show-card h1 {
+        font-size: 2rem;
+    }
+}
