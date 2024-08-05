@@ -229,6 +229,11 @@ img {
 }
 
 .pagination {
+    position: relative;
+    padding: 2rem;
+}
+
+.pagination a {
     font-size: 1.2rem;
     color: var(--gray);
     text-decoration: none;
@@ -236,8 +241,20 @@ img {
     display: inline-block;
 }
 
-.pagination:hover {
+.pagination a:hover {
     color: var(--black);
+}
+
+.pagination a.olderPosts {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.pagination a.newerPosts {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 /* Footer */
