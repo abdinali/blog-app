@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 
         const noOfPosts = await Post.countDocuments();
         const totalPages = Math.ceil(noOfPosts / perPageLimit)
-        
+
         const prevPage = parseInt(page) + 1;
         const nextPage = parseInt(page) - 1;
 
@@ -53,5 +53,29 @@ router.get('/:id', async (req, res) => {
         console.log(error);
     }
 });
+
+router.post('/search', async (req, res) => {
+    try {
+        const locals = {
+            title: "Search Results",
+            description: "Search results for your query.",
+        }
+
+        // Remove special characters from search term
+        let searchTerm = req.body.searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
+        
+        // Find posts that match the search term
+        const posts = await Post.find({
+            $or: [
+                { title: new RegExp(searchTerm, "i") },
+                { body: new RegExp(searchTerm, "i") },
+            ]
+        });
+
+        res.render("search", { locals, posts, searchTerm });
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 export default router;
