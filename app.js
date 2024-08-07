@@ -11,6 +11,8 @@ const PORT = process.env.PORT || 3000
 // DB
 connectDB();
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static("public"));
 app.use(expressEjsLayouts);
 app.set('layout', './layouts/boilerplate');
