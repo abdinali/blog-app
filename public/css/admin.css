@@ -1,0 +1,20 @@
+.admin_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.input_field {
+    width: 100%;
+}
+
+.input_field input {
+    width: 100%;
+    max-width: 768px;
+}
+
+.admin_form .btn {
+    width: 120px;
+    border: 0;
+    text-align: center;
+}
