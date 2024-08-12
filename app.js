@@ -5,8 +5,10 @@ import expressEjsLayouts from "express-ejs-layouts";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import jwt from "jsonwebtoken";
 import mainRoutes from "./server/routes/posts.js";
 import adminRoutes from "./server/routes/admin.js";
+import User from "./server/models/user.js";
 
 dotenv.config();
 const app = express()
@@ -33,6 +35,23 @@ app.use(express.static("public"));
 app.use(expressEjsLayouts);
 app.set('layout', './layouts/boilerplate');
 app.set("view engine", "ejs");
+
+app.use(async (req, res, next) => {
+    res.locals.current_user = null;
+    const token = req.cookies.token;
+    if (token) {
+        try {
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            const user = await User.findById(decoded.userId);
+            if (user) {
+                res.locals.current_user = user;
+            } 
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    next();
+});
 
 // ROUTES
 app.use("/posts", mainRoutes);

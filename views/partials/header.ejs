@@ -3,14 +3,23 @@
     <nav class="header__nav">
         <ul>
             <li>
-                <a href="/posts" class="">Home</a>
+                <a href="/posts">Home</a>
             </li>
-            <li>
-                <a href="/admin/signin" class="">Sign In</a>
-            </li>
-            <li>
-                <a href="/admin/signup" class="">Sign Up</a>
-            </li>
+            <% if (!current_user) { %>
+                <li>
+                    <a href="/admin/signin">Sign In</a>
+                </li>
+                <li>
+                    <a href="/admin/signup">Sign Up</a>
+                </li>
+            <% } else { %>
+                <li>
+                    <a href="/admin/dashboard">Dashboard</a>
+                </li>
+                <li>
+                    <a href="/admin/signout">Logout
+                </li>
+            <% } %>
         </ul>
     </nav>
 
