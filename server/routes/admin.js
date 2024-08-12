@@ -42,6 +42,16 @@ router.get('/signup', async (req, res) => {
     }
 })
 
+router.get('/signout', async (req, res) => {
+	try {
+		res.clearCookie('token');
+		res.redirect('/admin/signin');
+	}
+	catch (error) {
+		console.log(error);
+	}
+})
+
 router.get('/dashboard', authMiddleware, async (req, res) => { 
     try {
 		const locals = {
