@@ -20,7 +20,7 @@ const authMiddleware = async (req, res, next) => {
     }
 };
 
-router.get("/signin", async (req, res) => {
+router.get('/signin', async (req, res) => {
     try {
         res.render("admin/signin");
     }
@@ -29,7 +29,7 @@ router.get("/signin", async (req, res) => {
     }
 })
 
-router.get("/signup", async (req, res) => {
+router.get('/signup', async (req, res) => {
     try {
         res.render("admin/signup");
     }
@@ -38,9 +38,14 @@ router.get("/signup", async (req, res) => {
     }
 })
 
-router.get("/dashboard", authMiddleware, async (req, res) => { 
+router.get('/dashboard', authMiddleware, async (req, res) => { 
     try {
-        res.render("admin/dashboard");
+		const locals = {
+			title: "Dashboard",
+			description: 'Simple blog to share your thoughts with the world.',
+		};
+		const posts = await Post.find({});
+        res.render("admin/dashboard", { posts, locals });
     }
     catch (error) {
         console.log(error);

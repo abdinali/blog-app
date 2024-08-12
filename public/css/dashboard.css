@@ -1,0 +1,47 @@
+.admin-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-title .btn {
+    transform: scale(0.7);
+}
+
+.admin-posts {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.admin-posts li {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 98px;
+    padding: 0.7rem;
+    border: 2px solid #1c1c1c;
+    border-radius: 0.2rem;
+}
+
+.admin-posts li .admin-controls {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.admin-controls .control {
+    padding: 1rem;
+    background-color: #1c1c1c;
+    color: #fff;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.admin-controls .control i {
+    font-size: 1rem;
+}

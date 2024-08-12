@@ -1,1 +1,25 @@
-<h3>Dashboard</h3>
+<div class="admin-title">
+    <h2>Posts</h2>
+    <a href="/admin/dashboard/add-post" class="btn">+ Add New</a>
+</div>
+
+<ul class="admin-posts">
+    <% for(let post of posts) { %>
+        <li>
+            <div class="post">
+                <a href="posts/<%= post._id %>">
+                    <h4><%= post.title %></h4>
+                    <p><%= post.content %></p>
+                </a>
+                <span class="article-list__date"><%= post.createdAt.toLocaleDateString() %></span>
+            </div>
+            <div class="admin-controls">
+                <a href="/admin/dashboard/<%= post._id %>/edit-post/">
+                    <button class="control">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                </a>
+            </div>
+        </li>
+    <% } %>
+</ul>
