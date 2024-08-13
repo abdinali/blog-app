@@ -5,6 +5,7 @@ import expressEjsLayouts from "express-ejs-layouts";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import methodOverride from "method-override";
 import mainRoutes from "./server/routes/posts.js";
 import adminRoutes from "./server/routes/admin.js";
 
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 3000
 // DB
 connectDB();
 
+app.use(methodOverride('_method'));
 app.use(cookieParser());
 app.use(session({
     secret: process.env.SESSION_SECRET,

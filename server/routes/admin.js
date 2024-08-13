@@ -56,11 +56,11 @@ router.get('/signout', async (req, res) => {
 router.get('/dashboard', authMiddleware, async (req, res) => { 
     try {
 		const locals = {
-			title: "Dashboard",
+			title: 'Dashboard',
 			description: 'Simple blog to share your thoughts with the world.',
 		};
 		const posts = await Post.find({});
-        res.render("admin/dashboard", { posts, locals });
+        res.render('admin/dashboard', { posts, locals });
     }
     catch (error) {
         console.log(error);
@@ -75,6 +75,20 @@ router.get('/dashboard/add-post', authMiddleware, async (req, res) => {
 		};
 		res.render("admin/add-post", { locals });
 	} catch (error) {
+		console.log(error);
+	}
+})
+
+router.get('/dashboard/:id/edit-post', authMiddleware, async (req, res) => {
+	try {
+		const locals = {
+			title: 'Edit Post',
+			description: 'Edit an existing post on the blog.',
+		}
+		const { id } = req.params;
+		const post = await Post.findById(id);
+		res.render('admin/edit-post', { post, locals });
+	} catch (error) {	
 		console.log(error);
 	}
 })
@@ -138,6 +152,20 @@ router.post('/dashboard/add-post', authMiddleware, async (req, res) => {
 			body,
 		});
 		await post.save();
+		res.redirect('/admin/dashboard');
+	} catch (error) {
+		console.log(error);
+	}
+})
+
+router.post('/dashboard/:id/edit-post', authMiddleware, async (req, res) => {
+	try {
+		const {title, body} = req.body;
+		const { id } = req.params;
+
+		const post = await Post.findByIdAndUpdate(id, { title, body });
+		await post.save();
+
 		res.redirect('/admin/dashboard');
 	} catch (error) {
 		console.log(error);

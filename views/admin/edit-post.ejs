@@ -1,0 +1,14 @@
+<h2>Edit Post</h2>
+
+<form class="post-form" action="/admin/dashboard/<%= post._id %>/edit-post?_method=PUT" method="POST">
+    <label for="title"><b>Title</b></label>
+    <input id="title" type="text" value="<%= post.title %>" name="title" required>
+
+    <label for="body"><b>Body</b></label>
+    <textarea name="body" id="body" cols="50" rows="10" required><%= post.body %></textarea>
+
+    <div class="actions">
+        <input type="submit" value="Save" class="btn">
+        <a href="/admin/dashboard">&larr; Back</a>
+    </div>
+</form>
