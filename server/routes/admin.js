@@ -8,7 +8,7 @@ const router = express.Router();
 const authMiddleware = async (req, res, next) => {
     const token = req.cookies.token;
     if (!token) {
-        res.status(401).json({ message: 'Unauthorized' });
+        return res.status(401).json({ message: 'Unauthorized' });
     }
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -44,6 +44,7 @@ router.get('/signup', async (req, res) => {
 
 router.get('/signout', async (req, res) => {
 	try {
+		res.session.destroy();
 		res.clearCookie('token');
 		res.redirect('/admin/signin');
 	}
@@ -82,6 +83,7 @@ router.post('/signin', async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials.' });
         }
 
+		req.session.user = user;
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.cookie('token', token, { httpOnly: true });
         res.redirect('/admin/dashboard');
