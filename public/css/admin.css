@@ -1,3 +1,4 @@
+/* Sign-in/up Pages */
 .admin_form {
     display: flex;
     flex-direction: column;
@@ -13,8 +14,20 @@
     max-width: 768px;
 }
 
-.admin_form .btn {
+.btn {
     width: 120px;
     border: 0;
     text-align: center;
+}
+
+/* Add a Post Page */
+.add-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.add-post-form .actions {
+    display: flex;
+    justify-content: space-between;
 }

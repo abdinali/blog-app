@@ -44,7 +44,7 @@ router.get('/signup', async (req, res) => {
 
 router.get('/signout', async (req, res) => {
 	try {
-		res.session.destroy();
+		req.session.destroy();
 		res.clearCookie('token');
 		res.redirect('/admin/signin');
 	}
@@ -65,6 +65,18 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
     catch (error) {
         console.log(error);
     }
+})
+
+router.get('/dashboard/add-post', authMiddleware, async (req, res) => {
+	try {
+		const locals = {
+			title: "Add Post",
+			description: "Add a new post to the blog.",
+		};
+		res.render("admin/add-post", { locals });
+	} catch (error) {
+		console.log(error);
+	}
 })
 
 router.post('/signin', async (req, res) => {
@@ -116,6 +128,20 @@ router.post('/signup', async (req, res) => {
     catch (error) {
         console.log(error);
     }
+})
+
+router.post('/dashboard/add-post', authMiddleware, async (req, res) => {
+	try {
+		const { title, body } = req.body;
+		const post = new Post({
+			title,
+			body,
+		});
+		await post.save();
+		res.redirect('/admin/dashboard');
+	} catch (error) {
+		console.log(error);
+	}
 })
 
 export default router;
