@@ -42,7 +42,7 @@ router.get("/", async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const post = await Post.findById(id);
+        const post = await Post.findById(id).populate('author');
         const locals = {
             title: post.title,
             description: post.body,
