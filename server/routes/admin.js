@@ -158,7 +158,7 @@ router.post('/dashboard/add-post', authMiddleware, async (req, res) => {
 	}
 })
 
-router.post('/dashboard/:id/edit-post', authMiddleware, async (req, res) => {
+router.put('/dashboard/:id/edit-post', authMiddleware, async (req, res) => {
 	try {
 		const {title, body} = req.body;
 		const { id } = req.params;
@@ -170,6 +170,16 @@ router.post('/dashboard/:id/edit-post', authMiddleware, async (req, res) => {
 	} catch (error) {
 		console.log(error);
 	}
+})
+
+router.delete('/dashboard/:id/delete-post', authMiddleware, async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Post.findByIdAndDelete(id);
+        res.redirect('/admin/dashboard');
+    } catch (error) {
+        console.log(error);
+    }
 })
 
 export default router;

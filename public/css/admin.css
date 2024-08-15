@@ -1,3 +1,7 @@
+main {
+    position: relative;
+}
+
 /* Sign-in/up Pages */
 .admin_form {
     display: flex;
@@ -29,5 +33,20 @@
 
 .post-form .actions {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.delete-form {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.delete-form .delete-btn {
+    border: none;
+    background-color: #FAF5EE;
+    color: red;
+    font-size: 3rem;
+    cursor: pointer;
 }

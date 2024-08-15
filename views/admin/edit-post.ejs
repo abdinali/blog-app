@@ -12,3 +12,9 @@
         <a href="/admin/dashboard">&larr; Back</a>
     </div>
 </form>
+
+<form class="delete-form" action="/admin/dashboard/<%= post._id %>/delete-post?_method=DELETE" method="POST">
+	<button type="submit" class="delete-btn">
+		<i class="fa-solid fa-trash"></i>
+	</button>
+</form>
