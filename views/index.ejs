@@ -1,12 +1,25 @@
-<div class="author">
+<!-- <div class="author">
     <h1 class="author__heading">Hi, I am [Author]</h1>
     <p class="author__body">Software Developer.</p>
-</div>
+</div> -->
 
-<img src="/img/hero-image.jpg" alt="2 monitors and a keyboard" class="hero-image" height="528" width="981">
+<!-- <img src="/img/hero-image.jpg" alt="2 monitors and a keyboard" class="hero-image" height="528" width="981"> -->
 
 <section class="articles">
-    <h2 class="articles__heading">Latest Posts</h2>
+    <div class="article__categories">
+        <h3 class="category selected">
+            Latest Posts
+        </h3>
+        <h3 class="category">
+            Popular
+        </h3>
+        <h3 class="category">
+            AI 
+        </h3>
+        <h3 class="category">
+            Software
+        </h3>
+    </div>
     <ul class="article-ul">
         <% for( let post of posts ) { %>
             <li>
