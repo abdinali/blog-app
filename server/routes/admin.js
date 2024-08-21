@@ -59,7 +59,7 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
 			title: 'Dashboard',
 			description: 'Simple blog to share your thoughts with the world.',
 		};
-		const posts = await Post.find({});
+		const posts = await Post.find({author: req.userId});
         res.render('admin/dashboard', { posts, locals });
     }
     catch (error) {
@@ -150,6 +150,7 @@ router.post('/dashboard/add-post', authMiddleware, async (req, res) => {
 		const post = new Post({
 			title,
 			body,
+            author: req.userId,
 		});
 		await post.save();
 		res.redirect('/admin/dashboard');
