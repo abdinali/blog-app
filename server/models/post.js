@@ -14,6 +14,10 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
+    likes: {
+        type: Number,
+        default: 0,
+    },
     createdAt: {
         type: Date,
         default: Date.now,
