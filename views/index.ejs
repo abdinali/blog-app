@@ -1,41 +1,24 @@
-<!-- <div class="author">
-    <h1 class="author__heading">Hi, I am [Author]</h1>
-    <p class="author__body">Software Developer.</p>
-</div> -->
-
-<!-- <img src="/img/hero-image.jpg" alt="2 monitors and a keyboard" class="hero-image" height="528" width="981"> -->
-
 <section class="articles">
-    <div class="article__categories">
-        <h3 class="category selected">
-            Latest Posts
-        </h3>
-        <h3 class="category">
-            Popular
-        </h3>
-        <h3 class="category">
-            AI 
-        </h3>
-        <h3 class="category">
-            Software
-        </h3>
-    </div>
-    <ul class="article-ul">
-        <% for( let post of posts ) { %>
-            <li>
-                <a href="/posts/<%= post._id %>">
-                    <span><%= post.title %></span>
-                    <span class="article-list__date"><%= post.createdAt.toLocaleDateString() %></span>
-                </a>
-            </li>
-        <% } %>
-    </ul>
-    <div class="pagination">
-        <% if (prevPage != null) { %>
-            <a href="/posts/?page=<%= prevPage %>" class="olderPosts">&lt; View Older Posts</a>
-        <% } %>
-        <% if (nextPage !== null) { %>
-            <a href="/posts/?page=<%= nextPage %>" class="newerPosts">View Newer Posts &gt;</a>
-        <% } %>
-    </div>
+	<div class="article__categories">
+		<h3 class="category selected">Latest Posts</h3>
+		<h3 class="category">Popular</h3>
+	</div>
+	<ul class="article-ul">
+		<% for( let post of posts ) { %>
+		<li>
+			<img src="https://res.cloudinary.com/dzqgunluk/image/upload/v1724206859/placeholder_oa2pve.avif" alt="">
+			<a href="/posts/<%= post._id %>">
+				<span><%= post.title %></span>
+				<span class="article-list__date"><%= post.createdAt.toLocaleDateString() %></span>
+			</a>
+		</li>
+		<% } %>
+	</ul>
+	<div class="pagination">
+		<% if (prevPage != null) { %>
+		<a href="/posts/?page=<%= prevPage %>" class="olderPosts">&lt; View Older Posts</a>
+		<% } %> <% if (nextPage !== null) { %>
+		<a href="/posts/?page=<%= nextPage %>" class="newerPosts">View Newer Posts &gt;</a>
+		<% } %>
+	</div>
 </section>

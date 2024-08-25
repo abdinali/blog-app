@@ -1,7 +1,14 @@
 <section class="show-content">
     <div class="show-card">
-        <h1><%= post.title %></h1>
-        <span class="post-author"><b>by <%= post.author.username %></b></span>
+        <div class="show-header">
+            <h1><%= post.title %></h1>
+            <span class="post-info">
+                <i class="fa-solid fa-user"></i>
+                <p><%= post.author.username %></p>
+                <p class="show-date"><%= post.createdAt.toLocaleDateString() %></p>
+            </span>
+            <img class="show-img" src="https://res.cloudinary.com/dzqgunluk/image/upload/v1724206859/placeholder_oa2pve.avif" alt="blog image"/>
+        </div>
         <article class="article">
             <p><%= post.body %></p>
         </article>

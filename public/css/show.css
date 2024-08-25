@@ -5,45 +5,93 @@
     margin-top: 8rem;
     display: flex;
     justify-content: center;
+    color: var(--white);
 }
 
 .show-card {
-    width: 80%;
+    width: 90%;
+    padding: 0.5rem;
 }
 
 .show-card h1 {
     text-align: center;
-    font-size: 1rem;
+    font-size: var(--font-size-lg);
+    color: var(--white);
 }
 
-.show-card article {
-    padding: 0rem 2rem;
+.show-card .show-header {
+    display: flex;
+    flex-direction: column;
 }
 
-.show-card article p {
-    padding: 0;
-    margin: 0;
-    font-size: 0.8rem;
+.show-header img {
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 768px;
+    height: auto;
 }
 
-.show-card .post-author {
+.show-card .show-header .post-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: var(--font-size-md);
+    padding: 0.5rem 2rem;
+}
+
+.post-info i {
+    background-color: var(--gray-lightest);
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 30px;
+    width: 30px;
+    padding: 1rem;
+    border-radius: 50%;
 }
 
-@media only screen and (min-width: 425px) {
-    .show-card h1 {
-        font-size: 1.5rem;
-    }
+.post-info p {
+    margin: 0;
+}
 
-    .show-card article p {
-        font-size: 1rem;
+.show-card .show-header .show-date {
+    margin: 0 auto;
+}
+
+.show-card article {
+    padding: 0 0.7rem;
+}
+
+.show-card article p {
+    background-color: var(--gray);
+    color: var(--white);
+    padding: 0.5rem;
+    margin: 0;
+    font-size: var(--font-size-sm);
+    text-align: justify;
+}
+
+@media only screen and (min-width: 425px) { 
+    .show-card article p,
+    .show-card .post-info {
+        font-size: var(--font-size-md);
     }
 }
 
-@media only screen and (min-width: 768px) {
-    .show-card h1 {
-        font-size: 2rem;
+@media screen and (min-width: 768px) {
+    .show-card .show-header .post-info {
+        position: relative;
+        flex-direction: row;
+        justify-content: flex-start;
     }
+
+    .show-card .show-header .show-date {
+        position: absolute;
+        right: 32px;
+        margin-left: 2rem;
+    }
+    
 }

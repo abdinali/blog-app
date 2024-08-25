@@ -23,8 +23,13 @@
     align-items: center;
     height: 98px;
     padding: 0.7rem;
-    border: 2px solid #1c1c1c;
+    background-color: var(--gray);
+    color: var(--white);
     border-radius: 0.2rem;
+}
+
+.admin-posts li .post a {
+    text-decoration: none;
 }
 
 .admin-posts li .admin-controls {
@@ -35,8 +40,8 @@
 
 .admin-controls .control {
     padding: 1rem;
-    background-color: #1c1c1c;
-    color: #fff;
+    background-color: var(--white);
+    color: var(--black);
     border: none;
     border-radius: 0.3rem;
     cursor: pointer;

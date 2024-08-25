@@ -22,6 +22,8 @@ main {
     width: 120px;
     border: 0;
     text-align: center;
+    background-color: var(--white);
+    color: var(--black);
 }
 
 /* Add/Edit Pages */
@@ -45,8 +47,8 @@ main {
 
 .delete-form .delete-btn {
     border: none;
-    background-color: #FAF5EE;
-    color: red;
+    background-color: var(--black);
+    color: var(--red);
     font-size: 3rem;
     cursor: pointer;
 }
