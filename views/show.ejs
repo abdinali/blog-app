@@ -8,6 +8,13 @@
                 <p class="show-date"><%= post.createdAt.toLocaleDateString() %></p>
             </span>
             <img class="show-img" src="https://res.cloudinary.com/dzqgunluk/image/upload/v1724206859/placeholder_oa2pve.avif" alt="blog image"/>
+            <div class="post-actions">
+                <div>
+                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-comment"></i>
+                </div>
+                <i class="fa-solid fa-share"></i>
+            </div>
         </div>
         <article class="article">
             <p><%= post.body %></p>
