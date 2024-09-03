@@ -236,6 +236,22 @@ img {
     display: inline-block;
 }
 
+.article-ul li a .details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.details .stats {
+    display: flex;
+    gap: 1rem;
+}
+
+.details .stats .stat {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .article-ul li {
     background-color: var(--gray);
     padding: 1rem;

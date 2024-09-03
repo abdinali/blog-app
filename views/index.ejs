@@ -5,13 +5,25 @@
 	</div>
 	<ul class="article-ul">
 		<% for( let post of posts ) { %>
-		<li>
-			<img src="https://res.cloudinary.com/dzqgunluk/image/upload/v1724206859/placeholder_oa2pve.avif" alt="">
-			<a href="/posts/<%= post._id %>">
-				<span><%= post.title %></span>
-				<span class="article-list__date"><%= post.createdAt.toLocaleDateString() %></span>
-			</a>
-		</li>
+				<li>
+					<img src="https://res.cloudinary.com/dzqgunluk/image/upload/v1724206859/placeholder_oa2pve.avif" alt="">
+					<a href="/posts/<%= post._id %>">
+						<span><%= post.title %></span>
+						<div class="details">
+							<span class="article-list__date"><%= post.createdAt.toLocaleDateString() %></span>
+							<div class="stats">
+								<div class="stat">
+									<i class="fa-solid fa-heart"></i>
+									<span class="likes"><%= post.likes.length %></span>
+								</div>
+								<div class="stat">
+									<i class="fa-solid fa-comment"></i>
+									<span class="comments"><%= post.comments.length %></span>
+								</div>
+							</div>
+						</div>
+					</a>
+				</li>
 		<% } %>
 	</ul>
 	<div class="pagination">
