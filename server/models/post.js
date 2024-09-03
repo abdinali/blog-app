@@ -12,12 +12,20 @@ const PostSchema = new Schema({
     },
     author: {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: 'User',
     },
-    likes: {
-        type: Number,
-        default: 0,
-    },
+    likes: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+        }
+    ],
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ],
     createdAt: {
         type: Date,
         default: Date.now,
@@ -28,6 +36,6 @@ const PostSchema = new Schema({
     },
 })
 
-const Post = mongoose.model("Post", PostSchema);
+const Post = mongoose.model('Post', PostSchema);
 
 export default Post;
